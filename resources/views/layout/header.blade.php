@@ -10,6 +10,18 @@
 <body>
     <div class="container">
         <h1>Manajemen Buku</h1>
+        @if (Auth::check())
+        <div style="margin-bottom: 10px">
+            <span>Anda login sebagai : <strong>{{ Auth::user()->name }}</strong></span>
+        </div>
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <button class="tombol">Logout</button>
+        </form>
+        @endif
+        
+        
+        
         <div class="nav">
             <ul>
                 <li><a href="/kategori">Kategori</a></li>
